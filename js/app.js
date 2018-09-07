@@ -69,7 +69,7 @@ var gApp = angular.module('gApp', []);
 			 name: "Project",
 			 img: "personal/portmain.jpg",
              img2: "personal/portmain.jpg",
-			 type : true, 
+			 type : false, 
 			 contents: "처음으로 DB도 연결하고 실질적으로 내가 평소에 보던 웹사이트 같은것을 개발한다고 생각하니 기대도 되고 재미있었습니다. UI구현을 이미 해놓은 상태에서 개발을 하니까 마치 회사원이 된 것처럼 뭔가 신기하고 재미있었습니다. 목표로 세워놓은 기능들을 구현하면 구현 할 수록 더욱더 재미있었습니다."
 			},
             {
