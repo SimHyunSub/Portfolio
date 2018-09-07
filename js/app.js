@@ -77,8 +77,8 @@ var gApp = angular.module('gApp', []);
 			 url : "team/UI_Project.pdf", 
 			 title: "Team",
 			 name: "Project",
-			 img: "team/portmain.jpg",
-             img2: "team/portmain.jpg",
+			 img: "team/UI_Main.gif",
+             img2: "team/UI_Main.gif",
 			 type : true, 
 			 contents: "처음으로 UI 구현을 하느라 힘들기도 하였고 원하는 대로 작업도 잘 되지 않아서 속상하기도 했지만 다 같이 고생하면서 제작을 해보니 뿌듯하기도 하고 보람차기도 했습니다. 그리고 화면 디자인을 하고나서 새로고침을 하면 변화된 것들이 눈에 잘 보여서, 결과물들이 바로바로 나타나니까 재미있었습니다."
 			},
