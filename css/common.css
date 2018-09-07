@@ -3,6 +3,8 @@ body {
     background-attachment:fixed;
     background-position:center;
     background-size:cover;
+/*    background-image: url(../images/background.jpg);*/
+    background-image: url(../images/gratisography-355H.jpg);
 }
 ul { list-style: none; }
 nav, section, footer { padding:30px 0; }
@@ -46,6 +48,7 @@ footer {
 	clear: both;
 	background-color: #f1f1f1;
 	color: black;
+    opacity: 0.8;
 }
 footer a:hover {
     color: burlywood; 
@@ -53,7 +56,7 @@ footer a:hover {
 .text-center { text-align: center; }
 
 nav h1 {
-	color: white;
+	color: black;
 	font-size: 5rem;
 	font-weight: 100;
 	line-height: 4rem;
@@ -64,7 +67,7 @@ nav .container {
 	height: 50px;
 	padding: 24px 15px;
 	margin: 0 auto;
-	background-color: #f1f1f1;
+/*	background-color: #f1f1f1;*/
 	color: rgba(255, 255, 255, 0.3);
 	position: relative;
 }
@@ -116,7 +119,7 @@ section.contents {
 	text-align: center;
 	padding: 20px 0;
 	clear: both;
-    background-color: #ffd700;
+/*    background-color: #ffd700;*/
 }
 
 #portfolioGroup {
