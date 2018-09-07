@@ -49,7 +49,7 @@ var gApp = angular.module('gApp', []);
 			 title: "Personal",
 			 name: "Project",
 			 img: "personal/about.png",
-             img2: "personal/about.png",
+             img2: "personal/aboutme.png",
              type : false,   
 			},
             {
