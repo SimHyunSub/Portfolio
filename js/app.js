@@ -1,133 +1,247 @@
-var gApp = angular.module('gApp', []);
-    gApp.run(function($rootScope){
-    	$rootScope.address = "서울시 금천구 가산디지털2로 115 대륭테크노타운3차";
-    	$rootScope.dns = "GooDee";
-    	$rootScope.title = "Portfolio";
-    	$rootScope.name = "심현섭";
-    });
-	gApp.controller('gCtrl', function($scope) {
-		$scope.htmlCheck = false;
-		$scope.bodyCheck = false;
-		$scope.btCheck = false;
-		$scope.projectFlag = false;
-		$scope.projectUrl = "";
-		$scope.btnActive = 1;
-		
-		$scope.dropEvent = function() {
-			$scope.htmlCheck = !$scope.htmlCheck;
-			$scope.bodyCheck = !$scope.bodyCheck;
-			$scope.btCheck   = !$scope.btCheck;
-		};
-		
-		$scope.projectEvent = function(rows) {
-			$scope.row = rows;
-			if($scope.projectUrl == rows.url) {
-				$scope.projectUrl = "";
-				$scope.projectFlag = false;
-			} else {
-				$scope.projectUrl = rows.url;
-				$scope.projectFlag = true;
-			}
-		}
-		
-		$scope.iFrameLink = function(){
-			if($scope.iframeView){
-				location.href = $scope.iframeView;
-			}
-		}
-		
-		$scope.btnList = [
-			{filter: "*",      name: "All",      active: true },
-			{filter: ".bgOn",  name: "Personal", active: false},
-			{filter: ".bgOff", name: "Team",     active: false}
-		];
-		
-		$scope.dataSource = [
-            {
-			 path: "portfolio/",
-             url : "../images/personal/about.png",
-			 title: "Personal",
-			 name: "Project",
-			 img: "personal/aboutme.png",
-             img2: "personal/aboutme.png",
-             type : false,   
-			},
-            {
-			 path: "portfolio/",
-			 url : "personal/kakao.pdf", 
-			 title: "Personal",
-			 name: "Project",
-             img: "personal/process.gif",
-			 img2: "personal/process.gif",
-			 type : false,
-			 contents: "친구들에게 웹과 빅데이터를 배운다고 하였더니 저에게 카카오톡 대화방을 분석 하는 것을 만들어보라고 하였습니다. 처음에는 카카오톡의 대화방 내용을 분석한다는것이 저에게는 생소하고 어려웠지만 친구들과 부모님께 보여 드리겠다는 마음가짐으로 열심히 하다보니 만족스럽게 완성도 되고 자기계발에 엄청난 도움이 되었습니다."
-			},
-			{
-			 path: "portfolio/",
-			 url : "personal/webSite.pdf", 
-			 title: "Personal",
-			 name: "Project",
-			 img: "personal/portmain.jpg",
-             img2: "personal/portmain.jpg",
-			 type : true, 
-			 contents: "처음으로 DB도 연결하고 실질적으로 내가 평소에 보던 웹사이트 같은것을 개발한다고 생각하니 기대도 되고 재미있었습니다. UI구현을 이미 해놓은 상태에서 개발을 하니까 마치 회사원이 된 것처럼 뭔가 신기하고 재미있었습니다. 목표로 세워놓은 기능들을 구현하면 구현 할 수록 더욱더 재미있었습니다."
-			},
-            {
-			 path: "portfolio/",
-			 url : "team/UI_Project.pdf", 
-			 title: "Team",
-			 name: "Project",
-			 img: "team/portmain.jpg",
-             img2: "team/portmain.jpg",
-			 type : true, 
-			 contents: "처음으로 UI 구현을 하느라 힘들기도 하였고 원하는 대로 작업도 잘 되지 않아서 속상하기도 했지만 다 같이 고생하면서 제작을 해보니 뿌듯하기도 하고 보람차기도 했습니다. 그리고 화면 디자인을 하고나서 새로고침을 하면 변화된 것들이 눈에 잘 보여서, 결과물들이 바로바로 나타나니까 재미있었습니다."
-			},
-            {
-			 path: "",
-			 url : "https://www.dropbox.com/s/9ym92e0wwwcttro/shs-3.mp4?dl=0", 
-			 title: "Personal", 
-			 name: "Project",
-			 img: "personal/media.jpg",
-             img2: "personal/media.jpg",
-			 type : false, 
-			 contents: ""
-			}
-		];
-		
-		$scope.btnEvnet = function(index){
-			$scope.projectUrl = "";
-			$scope.projectFlag = false;
-			
-			for(var i = 0; i < $scope.btnList.length; i++){
-				$scope.btnList[i].active = false;
-			}
-			$scope.btnList[index].active = true;
-			$scope.grid.isotope({ filter: $scope.btnList[index].filter });
-		}
-		
-		setTimeout(function(){
-			$scope.grid = $('#portfolioGroup').isotope();
-		}, 200);
-	});
-	gApp.directive('resize', function ($window) {
-	    return function (scope, element) {
-	        var w = angular.element($window);
-	        scope.getWindowDimensions = function () {
-	            return {
-	                'h': w.height(),
-	                'w': w.width()
-	            };
-	        };
-	        scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {
-	            if(newValue.w >= 768){
-					scope.htmlCheck = false;
-					scope.bodyCheck = false;
-					scope.btCheck = false;
-				}
-	        }, true);
+html, body, h1, h2, h3, h4, h5, h6 { padding: 0; margin: 0; }
+body { 
+    background-attachment:fixed;
+    background-position:center;
+    background-size:cover;
+/*    background-image: url(../images/background.jpg);*/
+    background-image: url(../images/gratisography-355H.jpg);
+}
+ul { list-style: none; }
+nav, section, footer { padding:30px 0; }
+a { text-decoration: none; }
+ul { padding-left: 0; }
+button { cursor: pointer; }
 
-	        w.bind('resize', function () {
-	            scope.$apply();
-	        });
-	    }
-	});
+.btn {
+    color: #820024; 
+	background-color: #fff;
+	width: 120px;
+	height: 40px;
+	font-size: 1.5rem;
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	margin: 0 10px;
+	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+.btn:hover, .active { 
+	color: #fff; 
+	background-color: #444444; 
+	box-shadow: 0 4px 8px 0 rgba(229, 242, 222, 0.4), 0 6px 20px 0 rgba(229, 242, 222, 0.39); 
+}
+
+.htmlOn {
+	overflow: hidden;
+	overflow-Y: scroll;
+	height: 100%;
+}
+.bodyOn {
+	overflow: hidden;
+	height: 100%;
+}
+.displayNone {
+	display: block!important;
+}
+
+footer {
+	clear: both;
+	background-color: #f1f1f1;
+	color: black;
+    opacity: 0.8;
+}
+footer a:hover {
+    color: burlywood; 
+}
+.text-center { text-align: center; }
+
+nav h1 {
+	color: black;
+	font-size: 5rem;
+	font-weight: 100;
+	line-height: 4rem;
+	margin-bottom: 40px;
+}
+nav .container {
+	width: calc(100% - 30px);
+	height: 50px;
+	padding: 24px 15px;
+	margin: 0 auto;
+/*	background-color: #f1f1f1;*/
+	color: rgba(255, 255, 255, 0.3);
+	position: relative;
+}
+#name{
+    color: black;
+}
+nav .container .navbar-site {
+	display: none;
+}
+nav .container .navbar-toggler {
+	display: none;
+}
+nav .container .navbar-toggler-icon {
+/*	display: inline-block;*/
+	height: 1.5em;
+	width: 1.5em;
+	vertical-align: middle;
+	content: "";
+	background: no-repeat center center;
+	background-size: 100% 100%;
+	background-image: url(../images/icon/ic_view_headline_white_48px.svg);
+}
+nav .container div {
+	text-align: center;
+	display: block;
+}
+nav .container ul {
+	margin: 0;
+	height: 2rem;
+	display: inline-block;
+	padding-top: 5px;
+	padding-left: 0;
+}
+nav .container ul li {
+	display: inline-block;
+	float: left;
+	padding: 0 20px;
+}
+nav .container ul li a {
+	font-size: 2rem;
+	font-weight: 800;
+	color: #fff;
+}
+nav .container ul li a:hover {
+	color: #fff;
+}
+
+section.contents {
+	text-align: center;
+	padding: 20px 0;
+	clear: both;
+/*    background-color: #ffd700;*/
+}
+
+#portfolioGroup {
+	width: 80%;
+	margin-left: 10%;
+}
+
+.isotope-item {
+	display: inline-block;
+	float: left;
+	width: calc(100% / 3 - 20px);
+/* 	height: 40px; */
+	padding: 15px 0 10px 0;
+	margin: 10px 10px;
+	font-size: 1.5rem;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.isotope-item img {
+	width: calc(100% - 20px);
+	min-height: 260px;
+	padding: 10px 10px 0 10px; 
+/*    border: 1px solid #f1f1f1; */
+/*    border-radius: 5px;*/
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	color: blue;
+}
+
+.bgOn {
+	background-color: black;	
+    color: white;
+}
+
+.bgOff {
+	background-color: black;	
+    color: white;
+}
+
+.bg_white {
+	background-color: white;
+}
+
+section.contents2 {
+	text-align: center;
+	padding: 20px 20%;
+}
+
+#inBox {
+	width: calc(100% - 20px);
+	padding: 10px;
+	border-radius: 10px;
+}
+#inBox:after{
+	content:'';
+	display:block;
+	clear:both;
+}
+#inBox h1 {
+	font-size: 3rem;
+}
+#inBox h2 {
+	font-size: 2rem;
+}
+#inBox .subBox {
+	float: left;
+}
+#inBox .width-100 {
+	width: calc(100% - 20px);
+	padding: 0 10px;
+}
+#inBox .width-60 {
+	width: calc(60% - 20px);
+	padding: 0 10px;
+}
+#inBox .width-40 {
+	width: 40%;
+}
+#inBox .width-100 img {
+	width: 100%;
+}
+#inBox .width-100 video {
+	width: 100%;
+}
+#inBox .width-100 p {
+	text-align: left;
+}
+#inBox .width-60 img {
+	width: 100%;
+}
+#inBox .height-80 {
+/* 	height: 470px;	 */
+}
+#inBox .height-20 {
+/* 	height: 30px; */
+}
+
+#inBox .height-80 p {
+	padding: 0 20px;
+	width: calc(100% - 40px);
+	text-align: left;
+	font-size: 1.2rem;
+}
+#inBox .height-20 a {
+	display: inline-block;
+/* 	width: 70px; */
+/* 	height: 30px; */
+	margin: 0 10px;
+	background-color: rgba(146,112,91,.65);
+	padding: 10px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+}
+#inBox .height-20 a:hover {
+	color: yellow;
+	background-color: rgba(146,112,91,1);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
+}

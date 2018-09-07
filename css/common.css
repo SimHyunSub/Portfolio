@@ -81,7 +81,7 @@ nav .container .navbar-toggler {
 	display: none;
 }
 nav .container .navbar-toggler-icon {
-	display: inline-block;
+/*	display: inline-block;*/
 	height: 1.5em;
 	width: 1.5em;
 	vertical-align: middle;
@@ -142,7 +142,9 @@ section.contents {
 .isotope-item img {
 	width: calc(100% - 20px);
 	min-height: 260px;
-	padding: 10px 10px 0 10px;
+	padding: 10px 10px 0 10px; 
+/*    border: 1px solid #f1f1f1; */
+/*    border-radius: 5px;*/
 }
 
 a {
@@ -154,11 +156,13 @@ a:hover {
 }
 
 .bgOn {
-	background-color: white;	
+	background-color: black;	
+    color: white;
 }
 
 .bgOff {
-	background-color: white;	
+	background-color: black;	
+    color: white;
 }
 
 .bg_white {
